@@ -1,0 +1,3 @@
+[submodule "fizzbuzz-http"]
+	path = fizzbuzz-http
+	url = https://github.com/AzonTi/fizzbuzz-http.git
