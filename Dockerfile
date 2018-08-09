@@ -1,6 +1,8 @@
-FROM golang
-
+FROM golang:alpine AS builder
 WORKDIR /go/src/app
 COPY fizzbuzz-http .
+RUN GOOS=linux CGO_ENABLED=0 go build
 
-CMD ["/usr/local/go/bin/go", "run", "main.go"]
+FROM scratch
+COPY --from=builder /go/src/app/app /
+CMD ["/app"]
